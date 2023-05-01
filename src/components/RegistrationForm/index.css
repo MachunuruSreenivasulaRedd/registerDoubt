@@ -1,0 +1,31 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:20px;
+  height:250px;
+  margin-top:30px;
+  box-shadow: 2px 2px 1px 1px #fef2f4;
+}
+.registrationContainer{
+    display:flex;
+    justify-content: center;
+}
+.heading{
+color:#ea580c;
+text-align: center;
+}
+.submitContainer{
+    text-align:center;
+}
+.btn{
+    color:#ffffff;
+    background-color:#ea580c;
+    border:0px;
+    border-radius:8px;
+    padding:7px;
+    margin:auto;
+}
+.errorMessage{
+    color:#ff0b37;
+}
