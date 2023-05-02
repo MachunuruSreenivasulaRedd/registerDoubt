@@ -6,6 +6,8 @@ let secondLength = 0
 
 class RegistrationForm extends Component {
   state = {
+    username: '',
+    password: '',
     firstshowErrorMsg: false,
     lastshowErrorMsg: false,
     firsterrMsg: '',
@@ -37,6 +39,14 @@ class RegistrationForm extends Component {
     return secondLength
   }
 
+  onUsername = event => {
+    this.setState({username: event.target.value})
+  }
+
+  onPassword = event => {
+    this.setState({password: event.target.value})
+  }
+
   onSubmission = () => {
     const first = this.onFirstLostFocus()
     const second = this.onSecondLostFocus()
@@ -53,6 +63,8 @@ class RegistrationForm extends Component {
 
   render() {
     const {
+      username,
+      password,
       firsterrMsg,
       lasterrMsg,
       firstshowErrorMsg,
@@ -66,7 +78,9 @@ class RegistrationForm extends Component {
         <input
           id="firstName"
           placeholder="First name"
+          value={username}
           onBlur={this.onFirstLostFocus}
+          onChange={this.onUsername}
         />
         {firstshowErrorMsg ? (
           <p className="errorMessage">{firsterrMsg}</p>
@@ -75,7 +89,9 @@ class RegistrationForm extends Component {
         <input
           id="secondName"
           placeholder="second name"
+          value={password}
           onBlur={this.onSecondLostFocus}
+          onChange={this.onPassword}
         />
         {lastshowErrorMsg ? <p className="errorMessage">{lasterrMsg}</p> : null}
         <button type="button" className="btn" onClick={this.onSubmission}>
