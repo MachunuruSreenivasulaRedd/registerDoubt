@@ -103,7 +103,7 @@ class RegistrationForm extends Component {
     )
 
     const submitPage = (
-      <form className="submitContainer" onSubmit={this.onNewResponse}>
+      <div className="submitContainer">
         <h1 className="heading">Registration</h1>
         <img
           src="https://assets.ccbp.in/frontend/react-js/success-icon-img.png"
@@ -111,10 +111,10 @@ class RegistrationForm extends Component {
           alt="success"
         />
         <p>Submitted Successfully</p>
-        <button type="submit" className="btn">
+        <button type="button" className="btn" onClick={this.onNewResponse}>
           Submit Another Response
         </button>
-      </form>
+      </div>
     )
     return (
       <div className="registrationContainer">
