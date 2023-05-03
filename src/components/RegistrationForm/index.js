@@ -47,7 +47,8 @@ class RegistrationForm extends Component {
     this.setState({password: event.target.value})
   }
 
-  onSubmission = () => {
+  onSubmission = event => {
+    event.preventDefault()
     const first = this.onFirstLostFocus()
     const second = this.onSecondLostFocus()
     if (first > 0 && second > 0) {
@@ -57,8 +58,9 @@ class RegistrationForm extends Component {
     }
   }
 
-  onNewResponse = () => {
-    this.setState({canSubmit: false})
+  onNewResponse = event => {
+    event.preventDefault()
+    this.setState({canSubmit: false, username: '', password: ''})
   }
 
   render() {
@@ -72,7 +74,7 @@ class RegistrationForm extends Component {
       canSubmit,
     } = this.state
     const formPage = (
-      <div className="formContainer">
+      <form className="formContainer" onSubmit={this.onSubmission}>
         <h1 className="heading">Registration</h1>
         <label htmlFor="firstName">FIRST NAME</label>
         <input
@@ -94,24 +96,25 @@ class RegistrationForm extends Component {
           onChange={this.onPassword}
         />
         {lastshowErrorMsg ? <p className="errorMessage">{lasterrMsg}</p> : null}
-        <button type="button" className="btn" onClick={this.onSubmission}>
+        <button type="submit" className="btn">
           Submit
         </button>
-      </div>
+      </form>
     )
 
     const submitPage = (
-      <div className="submitContainer">
+      <form className="submitContainer" onSubmit={this.onNewResponse}>
+        <h1 className="heading">Registration</h1>
         <img
           src="https://assets.ccbp.in/frontend/react-js/success-icon-img.png"
           className="submitImg"
           alt="success"
         />
         <p>Submitted Successfully</p>
-        <button type="button" className="btn" onClick={this.onNewResponse}>
+        <button type="submit" className="btn">
           Submit Another Response
         </button>
-      </div>
+      </form>
     )
     return (
       <div className="registrationContainer">

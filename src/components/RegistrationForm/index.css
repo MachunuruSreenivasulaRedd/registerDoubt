@@ -11,6 +11,11 @@
     display:flex;
     justify-content: center;
 }
+.submitContainer{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+}
 .heading{
 color:#ea580c;
 text-align: center;
